@@ -5,8 +5,10 @@ import time
 import serial
 import json
 
-# Arduino와의 시리얼 통신 설정
-arduino = serial.Serial(port='COM3', baudrate=9600, timeout=.1)  # COM3는 사용하는 포트에 맞게 변경
+# 시리얼 포트 설정 - 사용중인 포트에 맞게 조정
+arduino_port = 'COM3'  # 예: COM3, /dev/ttyACM0 등
+baud_rate = 9600
+arduino = serial.Serial(port=arduino_port, baudrate=baud_rate, timeout=.1)
 
 # Mediapipe Face Mesh 설정
 mp_face_mesh = mp.solutions.face_mesh
